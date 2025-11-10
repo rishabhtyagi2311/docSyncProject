@@ -1,7 +1,7 @@
 
 import { router, publicProcedure } from "../trpc";
 import { maintainerSignUp} from "../types/maintainer";
-import { client } from "../prisma/prisma";
+import { client } from "../../prisma/prisma";
 
 export const maintainerOnboardingRouter  = router({
     
