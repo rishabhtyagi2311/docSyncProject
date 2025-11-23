@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "@trpc/client": "^11.7.0",
-    "@trpc/server": "^11.7.0"
+    "@trpc/server": "^11.7.0",
+    "react-router-dom": "^7.9.5"
   }
 }
