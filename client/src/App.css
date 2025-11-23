@@ -1,42 +1,222 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* General Resets and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; /* Using Inter for a modern look */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body, #root, .app-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text for contrast */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Main Content Wrapper */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px; /* Increased max-width for two columns */
+    padding: 20px;
+    gap: 40px; /* Space between overall title and cards */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+    font-size: 3.5rem; /* Larger, more impactful title */
+    font-weight: 700;
+    color: #ffffff; /* White title */
+    margin-bottom: 20px;
+    letter-spacing: -0.03em; /* Tighten letter spacing */
 }
 
-.card {
-  padding: 2em;
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.3;
 }
 
-.read-the-docs {
-  color: #888;
+/* Two-Column Layout for Signup Cards */
+.signup-wrapper {
+    display: grid; /* Using CSS Grid for robust two-column layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 50px; /* Space between the two columns */
+    width: 100%;
+    align-items: start; /* Align cards to the top if content differs */
+}
+
+.signup-card {
+    background: #2a2a2a; /* Slightly lighter dark for card background */
+    padding: 40px; /* More padding for a premium feel */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #3a3a3a; /* Subtle border */
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 20px; /* More space between input groups */
+    text-align: left;
+}
+
+.input-row {
+    display: flex;
+    gap: 20px; /* Space between first name and last name */
+    margin-bottom: 20px; /* Space between this row and next input */
+}
+
+.input-row .input-group {
+    flex: 1;
+    margin-bottom: 0; /* Remove extra margin from individual inputs in a row */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px; /* More space for label */
+    color: #b0b0b0; /* Lighter grey for labels */
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px; /* Larger padding for inputs */
+    border: 1px solid #4a4a4a; /* Darker border */
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-size: 1.1rem; /* Larger text in inputs */
+    color: #e0e0e0; /* Light text in inputs */
+    background-color: #3a3a3a; /* Darker input background */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: #6a5acd; /* Royal Purple on focus */
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.25); /* Glow effect */
+}
+
+/* Buttons */
+.google-btn {
+    width: 100%;
+    padding: 12px 15px; /* Adjust padding */
+    background-color: #3c3c3c; /* Darker Google button */
+    border: 1px solid #5a5a5a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    color: #e0e0e0;
+    font-weight: 500;
+    transition: background-color 0.2s, border-color 0.2s;
+    margin-bottom: 30px; /* More space below Google button */
+}
+
+.google-btn:hover {
+    background-color: #4c4c4c;
+    border-color: #6a6a6a;
+}
+
+.google-btn img {
+    filter: invert(0.9); /* Adjust Google logo for dark background */
+}
+
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 30px 0; /* More vertical space */
+    position: relative;
+    color: #808080;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 38%; /* Adjust width to make the line longer */
+    height: 1px;
+    background-color: #5a5a5a; /* Darker line */
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+
+/* Specific Link Styling for "Already have an account?" */
+.signup-card .login-link-inner {
+    text-align: center;
+    margin-top: 30px; /* Space above the link */
+    font-size: 0.95rem;
+    color: #b0b0b0;
+}
+
+.signup-card .login-link-inner a {
+    color: #9a8cdb; /* A brighter purple for links */
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+.signup-card .login-link-inner a:hover {
+    text-decoration: underline;
+    color: #b0a0e5; /* Lighter purple on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .signup-wrapper {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 40px; /* Space between stacked cards */
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+
+    .signup-card {
+        padding: 30px;
+    }
+
+    .input-row {
+        flex-direction: column; /* Stack first/last name on tiny screens */
+        gap: 15px;
+    }
 }
